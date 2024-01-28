@@ -110,8 +110,7 @@ Content-Type: application/json
 {
   "name": "Cliente A",
   "CPF": 98765432198,
-  "bankCNPJ": 12345678901234,
-  "balance": 1000.0
+  "bankCNPJ": 12345678901234
 }
 ```
 
@@ -121,7 +120,7 @@ Content-Type: application/json
   "id": "uuid-gerado",
   "CPF": 98765432198,
   "name": "Cliente A",
-  "balance": 1000.0,
+  "balance": 0.0,
   "bankCNPJ": 12345678901234
 }
 ```
