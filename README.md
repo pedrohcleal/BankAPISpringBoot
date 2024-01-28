@@ -58,7 +58,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 Certifique-se de que o MySQL está instalado e em execução na porta padrão (3306). Se você estiver usando um usuário ou senha diferentes, ajuste as configurações de acordo.
 
-## Criação do Banco de Dados
+### Criação do Banco de Dados
 
 Antes de iniciar o aplicativo, crie um banco de dados chamado `apibank` no seu servidor MySQL.
 
