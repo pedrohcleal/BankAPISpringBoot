@@ -12,6 +12,34 @@ O desafio consiste em criar um sistema com pelo menos dois tipos de usuários: E
 
 O projeto é estruturado em classes Java utilizando o framework Spring Boot. Abaixo estão os principais componentes do projeto:
 
+### Controllers
+
+#### BankAPIController
+
+Este controlador é responsável por expor os endpoints da API. Ele permite a criação de bancos, clientes, a realização de transações, depósitos e saques.
+
+### DTOs (Data Transfer Objects)
+
+- `BankRecordDto`: Representa os dados necessários para criar um banco.
+- `ClientRecordDto`: Representa os dados necessários para criar um cliente.
+- `DepositDto`: Representa os dados necessários para realizar um depósito.
+- `TransactionDto`: Representa os dados necessários para realizar uma transação entre clientes.
+- `WithdrawDto`: Representa os dados necessários para realizar um saque.
+
+### Models
+
+- `BankModel`: Representa um banco com informações como CNPJ, nome, saldo e taxa.
+- `ClientModel`: Representa um cliente com informações como CPF, nome, saldo e CNPJ do banco associado.
+
+### Repositories
+
+- `BankRepository`: Interface que fornece métodos de acesso aos dados dos bancos.
+- `ClientRepository`: Interface que fornece métodos de acesso aos dados dos clientes.
+
+### Services
+
+- `BankService`: Contém lógica de negócios para depósitos e saques, aplicando as taxas apropriadas.
+
 ## Configuração do Banco de Dados
 
 O projeto utiliza um banco de dados MySQL para armazenar as informações. Para configurar o banco de dados, siga as instruções abaixo.
@@ -44,33 +72,6 @@ Após configurar o banco de dados, inicie a aplicação Spring Boot. O Hibernate
 
 Lembre-se de ajustar as configurações do banco de dados conforme necessário para atender aos requisitos específicos do seu ambiente.
 
-### Controllers
-
-#### BankAPIController
-
-Este controlador é responsável por expor os endpoints da API. Ele permite a criação de bancos, clientes, a realização de transações, depósitos e saques.
-
-### DTOs (Data Transfer Objects)
-
-- `BankRecordDto`: Representa os dados necessários para criar um banco.
-- `ClientRecordDto`: Representa os dados necessários para criar um cliente.
-- `DepositDto`: Representa os dados necessários para realizar um depósito.
-- `TransactionDto`: Representa os dados necessários para realizar uma transação entre clientes.
-- `WithdrawDto`: Representa os dados necessários para realizar um saque.
-
-### Models
-
-- `BankModel`: Representa um banco com informações como CNPJ, nome, saldo e taxa.
-- `ClientModel`: Representa um cliente com informações como CPF, nome, saldo e CNPJ do banco associado.
-
-### Repositories
-
-- `BankRepository`: Interface que fornece métodos de acesso aos dados dos bancos.
-- `ClientRepository`: Interface que fornece métodos de acesso aos dados dos clientes.
-
-### Services
-
-- `BankService`: Contém lógica de negócios para depósitos e saques, aplicando as taxas apropriadas.
 
 ## Testes com Postman
 
