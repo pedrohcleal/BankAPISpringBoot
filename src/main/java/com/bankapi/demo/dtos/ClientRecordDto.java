@@ -7,7 +7,6 @@ import java.util.UUID;
 
 public record ClientRecordDto(@NotBlank String name,
                               @NotNull long CPF,
-                              @NotNull long bankCNPJ,
-                              double balance) {
+                              @NotNull long bankCNPJ) {
 
 }

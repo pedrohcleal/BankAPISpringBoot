@@ -22,7 +22,7 @@ public class ClientModel implements Serializable {
     private String Name;
 
     @Column(name = "balance")
-    private Double balance;
+    private Double balance = 0.0;
 
     @Column(name = "bankCNPJ")
     private long bankCNPJ;

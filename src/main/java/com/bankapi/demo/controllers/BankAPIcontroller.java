@@ -11,10 +11,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -37,6 +39,15 @@ public class BankAPIcontroller {
         var clientModel = new ClientModel();
         BeanUtils.copyProperties(clientRecordDto, clientModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(clientRepository.save(clientModel));
+    }
+
+    @GetMapping("/clients")
+    public ResponseEntity<List<ClientModel>> getAllClients(){
+        return ResponseEntity.status(HttpStatus.OK).body(clientRepository.findAll());
+    }
+    @GetMapping("/banks")
+    public ResponseEntity<List<BankModel>> getAllBanks(){
+        return ResponseEntity.status(HttpStatus.OK).body(bankRepository.findAll());
     }
     @PostMapping("/transaction")
     public ResponseEntity<String> performTransaction(@RequestBody @Valid TransactionDto transactionDto) {
@@ -69,6 +80,7 @@ public class BankAPIcontroller {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar a transação.");
         }
     }
+
     @Autowired
     private BankService bankService;
 
