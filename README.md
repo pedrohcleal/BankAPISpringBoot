@@ -197,6 +197,62 @@ Content-Type: application/json
 }
 ```
 
+### Endpoint: Obter Todos os Clientes
+
+**Request:**
+```http
+GET /clients
+```
+
+**Response:**
+```json
+[
+  {
+    "id": "uuid-cliente-1",
+    "CPF": 12345678901,
+    "name": "Cliente A",
+    "balance": 1000.0,
+    "bankCNPJ": 98765432109876
+  },
+  {
+    "id": "uuid-cliente-2",
+    "CPF": 23456789012,
+    "name": "Cliente B",
+    "balance": 1500.0,
+    "bankCNPJ": 98765432109876
+  },
+  // Outros clientes...
+]
+```
+
+### Endpoint: Obter Todos os Bancos
+
+**Request:**
+```http
+GET /banks
+```
+
+**Response:**
+```json
+[
+  {
+    "id": "uuid-banco-1",
+    "CNPJ": 98765432109876,
+    "name": "Banco XYZ",
+    "balance": 50000.0,
+    "tax": 0.03
+  },
+  {
+    "id": "uuid-banco-2",
+    "CNPJ": 87654321098765,
+    "name": "Banco ABC",
+    "balance": 30000.0,
+    "tax": 0.02
+  },
+  // Outros bancos...
+]
+```
+
 Estes são exemplos de requisições utilizando o Postman para testar os endpoints da API. Lembre-se de ajustar os valores conforme necessário.
 
 ## Possíveis Melhorias
