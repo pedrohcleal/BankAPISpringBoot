@@ -1,6 +1,6 @@
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-# Projeto Spring Bank API
+# Projeto Spring - Bank API
 
 Este é um projeto Spring em Java que implementa uma API bancária para lidar com transações entre clientes e empresas. O sistema inclui a criação de clientes e empresas, a realização de transações, depósitos e saques, listar clientes e bancos, e a aplicação de taxas sobre as transações.
 
