@@ -1,12 +1,11 @@
 package com.bankapi.demo.controllers;
 
-import com.bankapi.demo.dtos.BankRecordDto;
-import com.bankapi.demo.dtos.ClientRecordDto;
-import com.bankapi.demo.dtos.TransactionDto;
+import com.bankapi.demo.dtos.*;
 import com.bankapi.demo.models.BankModel;
 import com.bankapi.demo.models.ClientModel;
 import com.bankapi.demo.repositories.BankRepository;
 import com.bankapi.demo.repositories.ClientRepository;
+import com.bankapi.demo.services.BankService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +68,19 @@ public class BankAPIcontroller {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao processar a transação.");
         }
+    }
+    @Autowired
+    private BankService bankService;
+
+    @PostMapping("/deposit")
+    public ResponseEntity<BankModel> deposit(@RequestBody @Valid DepositDto depositDTO) {
+        BankModel updatedBank = bankService.deposit(depositDTO.bankCNPJ(), depositDTO.value(), depositDTO.CPF());
+        return ResponseEntity.ok(updatedBank);
+    }
+
+    @PostMapping("/withdraw")
+    public ResponseEntity<BankModel> withdraw(@RequestBody @Valid WithdrawDto withdrawDTO) {
+        BankModel updatedBank = bankService.withdraw(withdrawDTO.bankCNPJ(), withdrawDTO.value(), withdrawDTO.CPF());
+        return ResponseEntity.ok(updatedBank);
     }
 }

@@ -5,6 +5,5 @@ import jakarta.validation.constraints.NotNull;
 
 public record BankRecordDto(@NotBlank String name,
                             @NotNull long CNPJ,
-                            @NotNull Double taxDeposit,
-                            @NotNull Double taxWithDraw) {
+                            @NotNull Double tax) {
 }

@@ -23,17 +23,33 @@ public class BankModel implements Serializable {
     private String Name;
 
     @Column(name = "Balance")
-    private Double Balance;
+    private Double Balance = 0.0;
 
-    private Double taxDeposit;
-    private Double taxWithdraw;
+    @Column(name = "tax")
+    private Double tax;
 
     public UUID getId() {
         return id;
     }
 
+
+    public Double getTax() {
+        return this.tax;
+    }
+
+    public Double getTaxDeposit() {
+        return this.tax;
+    }
+    public Double getTaxWithdraw() {
+        return this.tax;
+    }
+
+    public void setTax(Double tax) {
+        this.tax = tax;
+    }
+
     public long getCNPJ() {
-        return CNPJ;
+        return this.CNPJ;
     }
 
     public void setCNPJ(long CNPJ) {
@@ -41,7 +57,7 @@ public class BankModel implements Serializable {
     }
 
     public String getName() {
-        return Name;
+        return this.Name;
     }
 
     public void setName(String name) {
@@ -49,26 +65,10 @@ public class BankModel implements Serializable {
     }
 
     public Double getBalance() {
-        return Balance;
+        return this.Balance;
     }
 
     public void setBalance(Double balance) {
         this.Balance = balance;
-    }
-
-    public Double getTaxDeposit() {
-        return taxDeposit;
-    }
-
-    public void setTaxDeposit(Double taxDeposit) {
-        this.taxDeposit = taxDeposit;
-    }
-
-    public Double getTaxWithdraw() {
-        return taxWithdraw;
-    }
-
-    public void setTaxWithDraw(Double taxWithdraw) {
-        this.taxWithdraw = taxWithdraw;
     }
 }
