@@ -12,6 +12,38 @@ O desafio consiste em criar um sistema com pelo menos dois tipos de usuários: E
 
 O projeto é estruturado em classes Java utilizando o framework Spring Boot. Abaixo estão os principais componentes do projeto:
 
+## Configuração do Banco de Dados
+
+O projeto utiliza um banco de dados MySQL para armazenar as informações. Para configurar o banco de dados, siga as instruções abaixo.
+
+### Configuração do `application.properties`
+
+Adicione as seguintes configurações no seu arquivo `application.properties` para conectar o aplicativo ao banco de dados MySQL:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/{bancodedados}
+spring.datasource.username={seuuser}
+spring.datasource.password={suasenha}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+```
+
+Certifique-se de que o MySQL está instalado e em execução na porta padrão (3306). Se você estiver usando um usuário ou senha diferentes, ajuste as configurações de acordo.
+
+## Criação do Banco de Dados
+
+Antes de iniciar o aplicativo, crie um banco de dados chamado `apibank` no seu servidor MySQL.
+
+```sql
+CREATE DATABASE apibank;
+```
+
+Isso garantirá que o aplicativo tenha um local para armazenar e recuperar os dados.
+
+Após configurar o banco de dados, inicie a aplicação Spring Boot. O Hibernate, configurado com `ddl-auto=update`, criará automaticamente as tabelas necessárias com base nas entidades do seu projeto.
+
+Lembre-se de ajustar as configurações do banco de dados conforme necessário para atender aos requisitos específicos do seu ambiente.
+
 ### Controllers
 
 #### BankAPIController
