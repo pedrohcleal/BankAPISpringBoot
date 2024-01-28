@@ -199,3 +199,33 @@ Content-Type: application/json
 ```
 
 Estes são exemplos de requisições utilizando o Postman para testar os endpoints da API. Lembre-se de ajustar os valores conforme necessário.
+
+## Possíveis Melhorias
+
+O projeto atual oferece uma implementação funcional da API bancária, mas sempre há espaço para melhorias e aprimoramentos. Abaixo estão algumas sugestões de melhorias que podem ser consideradas:
+
+1. **Autenticação e Autorização:** Implementar um sistema de autenticação e autorização para proteger os endpoints sensíveis da API, garantindo que apenas usuários autorizados possam realizar certas operações.
+
+2. **Documentação da API:** Utilizar uma ferramenta como o Swagger para documentar a API de forma mais completa, fornecendo detalhes sobre os endpoints, parâmetros, respostas e exemplos de uso.
+
+3. **Manuseio de Exceções:** Melhorar o manuseio de exceções para fornecer mensagens de erro mais significativas e informações úteis para o desenvolvedor ao lidar com casos excepcionais.
+
+4. **Validações Adicionais:** Reforçar as validações de entrada nos DTOs e nos serviços para garantir a integridade e consistência dos dados.
+
+5. **Testes Automatizados:** Expandir a cobertura de testes automatizados, incluindo testes de unidade, testes de integração e testes end-to-end. Isso ajudará a garantir a estabilidade e confiabilidade do sistema.
+
+6. **Logging:** Adicionar registros de logs adequados em diferentes partes do código para facilitar a identificação e resolução de problemas durante o monitoramento do sistema.
+
+7. **Tratamento de Transações:** Aprimorar o tratamento de transações para garantir consistência em operações que envolvam atualizações em mais de uma entidade.
+
+8. **Paginação e Ordenação:** Implementar paginização e ordenação para os endpoints que retornam listas de dados, permitindo uma melhor manipulação de grandes conjuntos de resultados.
+
+9. **Segurança das Senhas:** Se houver autenticação de usuários, garantir que as senhas sejam armazenadas de forma segura usando técnicas de hash e sal.
+
+10. **Monitoramento e Métricas:** Integrar ferramentas de monitoramento e métricas para obter insights sobre o desempenho do aplicativo, identificar gargalos e tomar decisões informadas sobre otimizações.
+
+11. **Internacionalização:** Se o projeto for destinado a uma audiência global, considere a internacionalização (i18n) para fornecer mensagens em vários idiomas.
+
+12. **Melhorias na Lógica de Taxas:** Avaliar a lógica de cálculo de taxas e considerar a possibilidade de permitir diferentes tipos de taxas para diferentes transações.
+
+Essas são apenas sugestões e as melhorias a serem implementadas podem variar com base nos requisitos específicos do projeto e nas metas de desenvolvimento. É sempre recomendável revisar periodicamente o código-fonte e aprimorar continuamente o sistema à medida que novas necessidades surgem.
