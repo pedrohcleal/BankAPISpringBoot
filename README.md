@@ -334,5 +334,3 @@ Explicações:
 - `BankRepository` e `ClientRepository` são interfaces que fornecem métodos de acesso aos dados dos bancos e clientes, respectivamente.
 - `BankService` contém a lógica de negócios para depósitos e saques, aplicando as taxas apropriadas.
 - `BankAPIController` é o controlador que expõe os endpoints da API.
-
-Essa é uma representação simplificada e pode ser expandida ou ajustada conforme necessário. Certifique-se de adaptar o diagrama UML às nuances específicas do seu projeto.
