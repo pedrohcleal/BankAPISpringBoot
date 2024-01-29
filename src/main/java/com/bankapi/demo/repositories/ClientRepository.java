@@ -14,4 +14,5 @@ public interface ClientRepository extends JpaRepository<ClientModel, UUID> {
 
     List<ClientModel> findByBankCNPJ(long bankCNPJ);
     Optional<ClientModel> findByCPFAndBankCNPJ(long cpf, long bankCNPJ);
+
 }

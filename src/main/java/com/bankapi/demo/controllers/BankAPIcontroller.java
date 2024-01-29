@@ -11,10 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -94,5 +91,21 @@ public class BankAPIcontroller {
     public ResponseEntity<BankModel> withdraw(@RequestBody @Valid WithdrawDto withdrawDTO) {
         BankModel updatedBank = bankService.withdraw(withdrawDTO.bankCNPJ(), withdrawDTO.value(), withdrawDTO.CPF());
         return ResponseEntity.ok(updatedBank);
+    }
+
+    @DeleteMapping("/{bankCNPJ}/{cpf}")
+    public ResponseEntity<Object> deleteClient(@PathVariable(value = "bankCNPJ") long bankCNPJ,
+                                               @PathVariable(value = "cpf") long cpf){
+        System.out.println(bankCNPJ);
+        System.out.println(cpf);
+        Optional<ClientModel> client0 = clientRepository.findByCPFAndBankCNPJ(cpf, bankCNPJ);
+        if (client0.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        } else if (client0.get().getBalance() == 0) {
+            clientRepository.delete(client0.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Client deleted sucessfully.");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client has money, balance of client = "
+                + client0.get().getBalance());
     }
 }
