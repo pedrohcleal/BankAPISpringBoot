@@ -284,3 +284,50 @@ O projeto atual oferece uma implementação funcional da API bancária, mas semp
 12. **Melhorias na Lógica de Taxas:** Avaliar a lógica de cálculo de taxas e considerar a possibilidade de permitir diferentes tipos de taxas para diferentes transações.
 
 Essas são apenas sugestões e as melhorias a serem implementadas podem variar com base nos requisitos específicos do projeto e nas metas de desenvolvimento. É sempre recomendável revisar periodicamente o código-fonte e aprimorar continuamente o sistema à medida que novas necessidades surgem.
+
+
+A Unified Modeling Language (UML) é uma linguagem gráfica padronizada para modelar sistemas de software. Abaixo está uma representação simplificada do UML para o projeto, incluindo as principais classes, associações e multiplicidades. Este é um exemplo básico e pode ser ajustado conforme necessário.
+
+```plaintext
++----------------------+       +----------------------+
+|       BankModel      |       |     ClientModel      |
++----------------------+       +----------------------+
+| - id: UUID           |       | - id: UUID           |
+| - CNPJ: long         |       | - CPF: long          |
+| - Name: String       |       | - Name: String       |
+| - Balance: Double    |       | - Balance: Double    |
+| - tax: Double        |       | - bankCNPJ: long     |
++----------------------+       +----------------------+
+| + getTax(): Double   |       | + getCPF(): long     |
+| + getCNPJ(): long    |       | + getBankCNPJ(): long|
+| + getName(): String  |       | + deposit(amount: Double): void |
+| + getBalance(): Double|       | + withdraw(amount: Double): void|
+| + setTax(tax: Double)|       +----------------------+
+| + setCNPJ(CNPJ: long)|
+| + setName(Name: String)|
+| + setBalance(Balance: Double)|
++----------------------+
+
++----------------------+       +----------------------+
+|   BankRepository     |       |  ClientRepository    |
++----------------------+       +----------------------+
+| + findAll(): List<BankModel>| | + findAll(): List<ClientModel>|
+| + findByCNPJ(CNPJ: Long): Optional<BankModel>| | + findByCPFAndBankCNPJ(CPF: Long, bankCNPJ: Long): Optional<ClientModel>|
++----------------------+       +----------------------+
+
++----------------------+       +----------------------+
+|    BankService       |       |  BankAPIController   |
++----------------------+       +----------------------+
+| + deposit(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel| | + getAllClients(): ResponseEntity<List<ClientModel>>|
+| + withdraw(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel| | + getAllBanks(): ResponseEntity<List<BankModel>>|
++----------------------+       +----------------------+
+```
+
+Explicações:
+
+- As classes `BankModel` e `ClientModel` representam os modelos de dados para os bancos e clientes, respectivamente.
+- `BankRepository` e `ClientRepository` são interfaces que fornecem métodos de acesso aos dados dos bancos e clientes, respectivamente.
+- `BankService` contém a lógica de negócios para depósitos e saques, aplicando as taxas apropriadas.
+- `BankAPIController` é o controlador que expõe os endpoints da API.
+
+Essa é uma representação simplificada e pode ser expandida ou ajustada conforme necessário. Certifique-se de adaptar o diagrama UML às nuances específicas do seu projeto.
