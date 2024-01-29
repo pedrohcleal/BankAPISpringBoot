@@ -288,14 +288,14 @@ Essas são apenas sugestões e as melhorias a serem implementadas podem variar c
 ## UML
 
 ```plaintext
-+----------------------+       +----------------------+
-|       BankModel      |       |     ClientModel      |
-+----------------------+       +----------------------+
-| - id: UUID           |       | - id: UUID           |
-| - CNPJ: long         |       | - CPF: long          |
-| - Name: String       |       | - Name: String       |
-| - Balance: Double    |       | - Balance: Double    |
-| - tax: Double        |       | - bankCNPJ: long     |
++----------------------+        +----------------------+
+|       BankModel      |        |     ClientModel      |
++----------------------+        +----------------------+
+| - id: UUID           |        | - id: UUID           |
+| - CNPJ: long         |        | - CPF: long          |
+| - Name: String       |        | - Name: String       |
+| - Balance: Double    |        | - Balance: Double    |
+| - tax: Double        |        | - bankCNPJ: long     |
 +----------------------+        +----------------------+
 | + getTax(): Double    |       | + getCPF(): long     |
 | + getCNPJ(): long     |       | + getBankCNPJ(): long|__________
@@ -309,15 +309,15 @@ Essas são apenas sugestões e as melhorias a serem implementadas podem variar c
 
 +----------------------+                           +----------------------+
 |   BankRepository     |                           |  ClientRepository    |
-+----------------------+_______                    +----------------------+_________
-| + findAll(): List<BankModel>|________________    | + findAll(): List<ClientModel>|__________________________________________
++----------------------+_______                    +----------------------+__________________________________________________
+| + findAll(): List<BankModel>|________________    | + findAll(): List<ClientModel>                                          |
 | + findByCNPJ(CNPJ: Long): Optional<BankModel>|   | + findByCPFAndBankCNPJ(CPF: Long, bankCNPJ: Long): Optional<ClientModel>|
-+---------------------------------------------+    +-------------------------------------------------------------------------+
++----------------------------------------------+    +------------------------------------------------------------------------+
 
 +----------------------+       
 |    BankService       |       
-+----------------------+_______________________________________________                            
-| + deposit(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel| 
++----------------------+________________________________________________                            
+| + deposit(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel | 
 | + withdraw(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel| 
 +-----------------------------------------------------------------------+
 
@@ -327,14 +327,14 @@ Essas são apenas sugestões e as melhorias a serem implementadas podem variar c
 | - bankRepository: BankRepository     |
 | - clientRepository: ClientRepository |
 | - bankService: BankService           |
-+----------------------------+------------------------------------------------
++--------------------------------------+--------------------------------------+
 | + saveBank(bankRecordDto: BankRecordDto): ResponseEntity<BankModel>         |
 | + saveClient(clientRecordDto: ClientRecordDto): ResponseEntity<ClientModel> |
 | + performTransaction(transactionDto: TransactionDto): ResponseEntity<String>|
 | + deposit(depositDTO: DepositDto): ResponseEntity<BankModel>                |
-| + withdraw(withdrawDTO: WithdrawDto): ResponseEntity<BankModel>            |
-| + getAllClients(): ResponseEntity<List<ClientModel>>                      |
-| + getAllBanks(): ResponseEntity<List<BankModel>>                         |
-+--------------------------------------------------------------------------+
+| + withdraw(withdrawDTO: WithdrawDto): ResponseEntity<BankModel>             |
+| + getAllClients(): ResponseEntity<List<ClientModel>>                        |
+| + getAllBanks(): ResponseEntity<List<BankModel>>                            |
++-----------------------------------------------------------------------------+
 
 ```
