@@ -309,10 +309,10 @@ Essas são apenas sugestões e as melhorias a serem implementadas podem variar c
 
 +----------------------+                           +----------------------+
 |   BankRepository     |                           |  ClientRepository    |
-+----------------------+_______                    +----------------------+__________________________________________________
-| + findAll(): List<BankModel>|________________    | + findAll(): List<ClientModel>                                          |
++----------------------+_______________________    +----------------------+__________________________________________________
+| + findAll(): List<BankModel>                 |   | + findAll(): List<ClientModel>                                          |
 | + findByCNPJ(CNPJ: Long): Optional<BankModel>|   | + findByCPFAndBankCNPJ(CPF: Long, bankCNPJ: Long): Optional<ClientModel>|
-+----------------------------------------------+    +------------------------------------------------------------------------+
++----------------------------------------------+   +-------------------------------------------------------------------------+
 
 +----------------------+       
 |    BankService       |       
@@ -323,10 +323,10 @@ Essas são apenas sugestões e as melhorias a serem implementadas podem variar c
 
 +--------------------------+
 |   BankAPIController      |
-+--------------------------+-----------
-| - bankRepository: BankRepository     |
-| - clientRepository: ClientRepository |
-| - bankService: BankService           |
++--------------------------+--------------------------------------------------+
+| - bankRepository: BankRepository                                            |
+| - clientRepository: ClientRepository                                        |
+| - bankService: BankService                                                  |
 +--------------------------------------+--------------------------------------+
 | + saveBank(bankRecordDto: BankRecordDto): ResponseEntity<BankModel>         |
 | + saveClient(clientRecordDto: ClientRecordDto): ResponseEntity<ClientModel> |
