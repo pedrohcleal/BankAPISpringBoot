@@ -285,7 +285,7 @@ O projeto atual oferece uma implementação funcional da API bancária, mas semp
 
 Essas são apenas sugestões e as melhorias a serem implementadas podem variar com base nos requisitos específicos do projeto e nas metas de desenvolvimento. É sempre recomendável revisar periodicamente o código-fonte e aprimorar continuamente o sistema à medida que novas necessidades surgem.
 
-UML:
+## UML
 
 ```plaintext
 +----------------------+       +----------------------+
@@ -338,10 +338,3 @@ UML:
 +--------------------------------------------------------------------------+
 
 ```
-
-Explicações:
-
-- As classes `BankModel` e `ClientModel` representam os modelos de dados para os bancos e clientes, respectivamente.
-- `BankRepository` e `ClientRepository` são interfaces que fornecem métodos de acesso aos dados dos bancos e clientes, respectivamente.
-- `BankService` contém a lógica de negócios para depósitos e saques, aplicando as taxas apropriadas.
-- `BankAPIController` é o controlador que expõe os endpoints da API.
