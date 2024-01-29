@@ -319,13 +319,24 @@ UML:
 +----------------------+_______________________________________________                            
 | + deposit(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel| 
 | + withdraw(bankCNPJ: Long, amount: Double, clientCPF: Long): BankModel| 
-+-----------------------------------------------------------------------+       
-+----------------------+
-|  BankAPIController   |
-+----------------------+______________________________
-| + getAllClients(): ResponseEntity<List<ClientModel>>|
-| + getAllBanks(): ResponseEntity<List<BankModel>>|
-+------------------------------------------------+
++-----------------------------------------------------------------------+
+
++--------------------------+
+|   BankAPIController      |
++--------------------------+-----------
+| - bankRepository: BankRepository     |
+| - clientRepository: ClientRepository |
+| - bankService: BankService           |
++----------------------------+------------------------------------------------
+| + saveBank(bankRecordDto: BankRecordDto): ResponseEntity<BankModel>         |
+| + saveClient(clientRecordDto: ClientRecordDto): ResponseEntity<ClientModel> |
+| + performTransaction(transactionDto: TransactionDto): ResponseEntity<String>|
+| + deposit(depositDTO: DepositDto): ResponseEntity<BankModel>                |
+| + withdraw(withdrawDTO: WithdrawDto): ResponseEntity<BankModel>            |
+| + getAllClients(): ResponseEntity<List<ClientModel>>                      |
+| + getAllBanks(): ResponseEntity<List<BankModel>>                         |
++--------------------------------------------------------------------------+
+
 ```
 
 Explicações:
