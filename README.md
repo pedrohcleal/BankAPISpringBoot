@@ -2,7 +2,7 @@
 
 # Projeto Spring - Bank API
 
-Este é um projeto Spring em Java que implementa uma API bancária para lidar com transações entre clientes e empresas. O sistema inclui a criação de clientes e empresas, a realização de transações, depósitos e saques, listar clientes e bancos, e a aplicação de taxas sobre as transações.
+Projeto Spring em Java que implementa uma API bancária para lidar com transações entre clientes e empresas. O sistema inclui a criação de clientes e empresas, a realização de transações, depósitos e saques, listar clientes e bancos, e a aplicação de taxas sobre as transações.
 
 ## Desafio
 
