@@ -253,7 +253,21 @@ GET /banks
 ]
 ```
 
-Estes são exemplos de requisições utilizando o Postman para testar os endpoints da API. Lembre-se de ajustar os valores conforme necessário.
+### Endpoint: Exclusão de Cliente
+
+**Request:**
+```http
+DELETE /{bankCNPJ}/{cpf}
+```
+
+**Response:**
+```json
+{
+  "message": "Client deleted successfully." ou "Client has money, balance of client = 495.0" ou "Client not found"
+
+}
+```
+
 
 ## Possíveis Melhorias
 
