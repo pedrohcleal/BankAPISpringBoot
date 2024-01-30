@@ -263,7 +263,7 @@ DELETE /{bankCNPJ}/{cpf}
 **Response:**
 ```json
 {
-  "message": "Client deleted successfully." //ou "Client has money, balance of client = 495.0" ou "Client not found"
+  "message": "Client deleted successfully." //ou "Client has money, balance of client = {client.balance()}" ou "Client not found"
 
 }
 ```
